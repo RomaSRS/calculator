@@ -1,6 +1,9 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import dataProviderApi from '../api/dataProviderApi';
+// eslint-disable-next-line import/extensions
 import ToolBar from './toolbar';
 import SmartInput from './smartinput';
 import SmartSelect from './smartselect';

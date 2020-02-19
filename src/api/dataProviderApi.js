@@ -3,7 +3,6 @@ const DEBOUNCE_DELAY_TIME = 500;
 
 export default class dataProvider {
   static fetchWithPause(promiseThat, resolveFunc, rejectFunc, delay = SERVER_FETCH_DELAY_TIME) {
-    // imitation of server fetch pause
     setTimeout(() => dataProvider.promiseForMe(promiseThat, resolveFunc, rejectFunc), delay);
   }
 
@@ -26,7 +25,6 @@ export default class dataProvider {
   }
 
   static fetchInfoCard() {
-    // mock info card data
     return {
       msrp: 20000,
       vehicleName: 'Audi A6 Quattro',
@@ -50,11 +48,8 @@ export default class dataProvider {
   }
 
   static fetchCalcDefaults() {
-    // mock calculator default data
     return {
-      // loan=0, Lease=1
       activePageIndex: 1,
-      // shared loan&lease
       tradein: 0,
       downpayment: 0,
       activeCreditScoreIndex: 3,
@@ -66,11 +61,9 @@ export default class dataProvider {
         { minScore: 0, creditScoreValue: 1.2 },
       ],
       payment: [0, 0],
-      // loan
       activeLoanTermIndex: 1,
       activeLoanTermIndexArray: ['12', '24', '36', '48', '72', '84'],
       apr: 0,
-      // lease
       activeLeaseTermIndex: 1,
       activeLeaseTermIndexArray: ['24', '36', '48'],
       activeMileagesIndex: 1,
@@ -81,7 +74,6 @@ export default class dataProvider {
   }
 
   static fetchTaxes = (postcode, onChange) => {
-    // imitation of the server-side taxes calculation
     const taxesValue =
       postcode &&
       postcode
@@ -94,21 +86,17 @@ export default class dataProvider {
   };
 
   static calculatePayment(preparedData) {
-    // imitation of the server-side monthly payment calculation
     const stateObject = JSON.parse(preparedData);
     const {
       msrp = -1,
-      // shared loan&lease
       tradein,
       downpayment,
       activeCreditScoreIndex,
       activeCreditScoreIndexArray,
       creditScoreValue,
-      // loan
       activeLoanTermIndex,
       activeLoanTermIndexArray,
       apr,
-      // lease
       activeLeaseTermIndex,
       activeLeaseTermIndexArray,
       activeMileagesIndex,
@@ -118,13 +106,11 @@ export default class dataProvider {
     const realCreditScoreValue = creditScoreValue.find(
       ({ minScore }) => minScore <= currentCreditScore
     ).creditScoreValue;
-    // - monthly payment loan: ```(msrp - tradeIn - downPayment) * / term * creditScoreValue * apr```
     const loan =
       (((msrp - tradein - downpayment) / activeLoanTermIndexArray[activeLoanTermIndex]) *
         realCreditScoreValue *
         apr) /
       100;
-    // - monthly payment lease: ```(msrp - tradeIn - downPayment) * mileage / 10000 / term * creditScoreValue```
     const lease =
       (((msrp - tradein - downpayment) * activeMileagesIndexArray[activeMileagesIndex]) /
         10000 /
@@ -133,7 +119,6 @@ export default class dataProvider {
     return [loan, lease];
   }
 
-  // just helper function
   static getPayment = (paymentValue = 0, currency = '') =>
     paymentValue === null || paymentValue === undefined
       ? ''

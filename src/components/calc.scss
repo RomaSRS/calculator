@@ -1,0 +1,127 @@
+.calc {
+  flex: 2;
+  margin: 10px;
+  background-color: #faebd7;
+  border: 2px solid #000080;
+  box-shadow: 5px 5px 5px #000000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.mainbody.hidden {
+  display: none;
+}
+
+.mainbody {
+  flex: 7;
+  border-style: hidden groove groove groove;
+  border: 2px solid #000080;
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: 50%;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.inputField .extendedinput {
+  box-sizing: border-box;
+  flex: 1 1 194px;
+  margin: 3px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.extendedinput span {
+  background-color: #faebd7;
+  padding: 0 5px;
+}
+
+.extendedinput input {
+  flex: auto;
+  text-align: right;
+}
+
+.inputField select {
+  flex: 1 1 194px;
+  margin: 3px;
+  border-width: 2px;
+  padding: 0 2px;
+}
+
+.inputField .inputFieldLabel {
+  flex: 1 1 15ch;
+  margin: 3px;
+}
+
+.errorMessage{
+  color:red;
+  font-weight: bold;
+}
+
+.extendedinput input:invalid {
+  background-color: #8B0000;
+}
+
+.toolbar {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.tabbutton {
+  width: 50%;
+  height: 20px;
+  text-align: center;
+  padding: 5px;
+  border-style: groove;
+  border: 2px solid #000080;
+  margin: 10px 3px 5px;
+  -moz-user-select: none; 
+  -webkit-user-select: none; 
+  -ms-user-select:none; 
+  user-select:none;
+  -o-user-select:none;
+}
+
+.tabbutton:hover, .tabbutton:focus {
+  background-color: #855b5b07;
+  border: 2px solid #000080;
+}
+
+.tabbutton.pressed {
+  background-color: rgb(104, 104, 104);
+  border: 2px solid #000080;
+}
+
+.tabbutton.pressed.pageview {
+  border-style: groove groove hidden groove;
+  border: 2px solid #000080;
+}
+
+@media only screen and (max-width: 650px){
+  #root{
+      flex-direction: column;
+  }
+  .mainbody{
+      flex-direction: column;
+  }
+  .column {
+      width: auto;
+  }
+}

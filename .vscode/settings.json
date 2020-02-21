@@ -14,5 +14,6 @@
     "termsloan",
     "tradeinloan",
     "wrappedheader"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

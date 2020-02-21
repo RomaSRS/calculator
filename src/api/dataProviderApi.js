@@ -81,7 +81,7 @@ export default class dataProvider {
         .map(num => (Number.isNaN(+num) ? '' : num * 11))
         .filter(el => el !== '')
         .join(' ')
-        .slice(0);
+        .slice(0, -2);
     onChange({ taxes: taxesValue });
   };
 

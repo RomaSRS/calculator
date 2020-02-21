@@ -11,11 +11,11 @@ const config = {
   },
 
   watch: true,
-  
+
   watchOptions: {
     aggregateTimeout: 100
   },
-  
+
   module: {
     rules: [
       {

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dataProviderApi from '../api/dataProviderApi';
 import Spinner from './spinner';
-import Rating from './rating';
+import Rating from './raiting';
 import './infocard.scss';
 
 export default function InfoCard(props) {
